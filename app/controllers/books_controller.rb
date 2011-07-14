@@ -1,6 +1,15 @@
 class BooksController < ApplicationController
   before_filter :authenticate_user!
 
+  def free
+    @books = Book.free
+
+    respond_to do |format|
+      format.html
+      format.xml { render :xml => @books }
+    end
+  end
+
   # GET /books
   # GET /books.xml
   def index
@@ -34,9 +43,24 @@ class BooksController < ApplicationController
     end
   end
 
+  def lend
+    @book = Book.find(params[:id])
+    @book.lend current_user
+    flash[:notice] = "Voce pegou #{@book.title} emprestado de #{@book.owner}."
+    redirect_to :back
+  end
+
+  def return 
+    @book = Book.find(params[:id])
+    @book.return
+    flash[:notice] = "Voce devolveu #{@book.title} para #{@book.owner}."
+    redirect_to :back
+  end
+
   # GET /books/1/edit
   def edit
     @book = Book.find(params[:id])
+    deny! unless @book.owner == current_user
   end
 
   # POST /books

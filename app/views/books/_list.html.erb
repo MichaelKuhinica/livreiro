@@ -1,0 +1,37 @@
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Category</th>
+    <th>Pages</th>
+    <th>Owner</th>
+    <th>With</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @books.each do |book| %>
+  <tr>
+    <td><%= book.title %></td>
+    <td><%= book.author %></td>
+    <td><%= book.category %></td>
+    <td><%= book.pages %></td>
+    <td><%= book.owner %></td>
+    <td><%= book.with %></td>
+    <td><%= link_to 'Show', book %></td>
+    <td>
+      <% if book.owner == current_user %>
+        <%= link_to 'Editar', edit_book_path(book) %>
+      <% elsif book.with == nil %>
+        <%= link_to 'Emprestar', lend_book_path(book), :method => :post %>
+      <% elsif book.with == current_user %>
+        <%= link_to 'Devolver', return_book_path(book), :method => :post %>
+      <% end %>
+    </td>
+    <td><%= link_to('Destroy', book, :confirm => 'Are you sure?', :method => :delete) if book.owner == current_user %></td>
+  </tr>
+<% end %>
+</table>
+
+

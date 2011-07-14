@@ -1,5 +1,28 @@
 Livreiro::Application.routes.draw do
-  resources :books
+  get "users/books"
+
+  get "users/lended"
+
+  get "users/lent"
+
+  resources :books do
+    collection do
+      get 'free'
+    end
+    member do
+      post 'lend'
+      post 'return'
+    end
+  end
+  
+  resources :users, :only => [] do 
+    member do
+      get 'books'
+      get 'lended'
+      get 'lent'
+    end
+  end
+  
   get "home/index"
   devise_for :users
   root :to => "books#index"
