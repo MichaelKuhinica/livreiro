@@ -23,12 +23,7 @@
   <div class="field">
     <%= f.input :pages %><br />
   </div>
-  <div class="field">
-    <%= f.association :owner %>
-  </div>
-  <div class="field">
-    <%= f.association :with %>
-  </div>
+  <%= f.hidden_field :owner_id, :value => current_user.id %>
   <div class="actions">
     <%= f.submit %>
   </div>
