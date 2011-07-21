@@ -1,35 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Livreiro</title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :all %>
-  <%= csrf_meta_tag %>
+	<title>Livreiro - Arquivo e Compartilhamento de livros</title>
+	<%= stylesheet_link_tag :all %>
+	<%= javascript_include_tag :all %>
+	<%= csrf_meta_tag %>
 </head>
 <body>
-  <div class="header">
-    <div id="user_nav">
-      <% if user_signed_in? %>
-        Signed in as <%= current_user.name %>. Not you?
-        <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-        <br />
-        <%= link_to "Adicionar Livro", new_book_path %>
-        <%= link_to "Todos os Livros", books_path %>
-        <%= link_to "Livros Livres", free_books_path %>
-        <%= link_to "Seus Livros", books_user_path(current_user) %>
-        <%= link_to "Livros emprestados por você", lent_user_path(current_user) %>
-        <%= link_to "Livros que você emprestou", lended_user_path(current_user) %>
-      <% else %>
-        <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
-      <% end %>
-    </div>
-  </div>
-  <div class="messages">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-  </div>
-  <div class="main-content">
-    <%= yield %>
-  </div>
+	<div id="header">
+		<a class="logo" href="">Livreiro</a>
+		<div class="menu">
+			<% if user_signed_in? %>
+				<div class="welcome">
+					Olá <%= current_user.name %>. <%= link_to "Sair", destroy_user_session_path, :method => :delete %>
+				</div>
+				<div class="links">
+					<%= link_to "Adicionar Livro", new_book_path %>
+					<%= link_to "Todos os Livros", books_path %>
+					<%= link_to "Livros Livres", free_books_path %>
+					<%= link_to "Seus Livros", books_user_path(current_user) %>
+					<%= link_to "Livros emprestados por você", lent_user_path(current_user) %>
+					<%= link_to "Livros que você emprestou", lended_user_path(current_user) %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+	<div id="main-content">
+  		<div class="messages">
+    		<p class="notice"><%= notice %></p>
+    		<p class="alert"><%= alert %></p>
+  		</div>
+		<%= yield %>
+	</div>
 </body>
 </html>

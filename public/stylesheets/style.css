@@ -1,0 +1,125 @@
+body{
+	background-color:#E6EBEB;
+	padding:0 0 30px;
+	font-family:Tahoma, Arial, Verdana;
+	color:#333;
+}
+
+a{
+	color:#07C;
+}
+
+a:visited{
+	
+}
+
+#header{
+	width:850px;
+	margin:0 auto;
+	height:80px;
+}
+
+#main-content{
+	background-color:#FFF;
+	width:750px;
+	margin:0 auto;
+	padding:50px;
+}
+
+/*logo*/
+
+#header a.logo{
+	float:left;
+	display:block;
+	overflow:hidden;
+	text-indent:-9999px;
+	background:url(../images/logo-livreiro.png) no-repeat;
+	width:185px;
+	height:42px;
+	margin:25px 0 0;
+}
+
+/*menu*/
+
+.menu{
+	float:right;
+	font-size:.8em;
+	text-align:right;
+	margin:10px 0 0;
+}
+
+.welcome{
+	margin:0 0 15px;
+}
+
+#signin,
+#signup,
+#forgot{
+	width:85%;
+	margin:0 auto;
+	min-height:325px;
+	background:url(../images/desenho-livreiro.gif) no-repeat right center;
+}
+
+#main-content h1{
+	letter-spacing:-1px;
+	font-size:1.5em;
+	margin:0 0 5px;
+}
+
+#main-content h2{
+	font-size:1em;
+	font-weight:normal;
+	margin:0 0 5px;
+}
+
+#main-content a{
+	font-size:.8em;
+}
+
+form{
+	margin:15px 0 30px;
+}
+
+form label{
+	font-size:.8em;
+	letter-spacing:-.5px;
+}
+
+form p{
+	margin:5px 0;
+}
+
+table{
+	margin:15px 0;
+	width:100%;
+	background-color:#E6EBEB;
+	font-size:.8em;
+}
+
+table th{
+	background-color:#E6EBEB;
+	padding:5px;	
+	text-align:left;
+}
+
+table td{
+	background-color:#FFF;
+	padding:5px;
+}
+
+.field label{
+	display:block;
+	float:left;
+	clear:both;
+}
+
+.field input{
+	clear:both;
+	display:block;
+}
+
+.field label abbr{
+	float:right;
+}
+
