@@ -1,6 +1,6 @@
 <div id="signin">
 	<h1>Arquive e compartilhe livros</h1>
-	<h2>Existem <span>15</span> livros disponíveis. Faça seu login!</h2>
+	<h2>Existem <span><%= all_books %></span> livros disponíveis. Faça seu login!</h2>
 
 	<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => "signin" }) do |f| %>
 
