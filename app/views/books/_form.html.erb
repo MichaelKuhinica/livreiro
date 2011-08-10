@@ -18,7 +18,8 @@
     <%= f.input :author %><br />
   </div>
   <div class="field">
-    <%= f.input :category %><br />
+    <%= f.input :category, :collection => Book::Categories %>
+    <br />
   </div>
   <div class="field">
     <%= f.input :pages %><br />

@@ -114,7 +114,7 @@ table td{
 	clear:both;
 }
 
-.field input{
+.field input, .field select{
 	clear:both;
 	display:block;
 }
