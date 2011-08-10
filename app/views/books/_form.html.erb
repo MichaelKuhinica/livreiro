@@ -22,6 +22,10 @@
     <br />
   </div>
   <div class="field">
+    <%= f.input :current_location, :collection => Book::Locations %>
+    <br />
+  </div>
+  <div class="field">
     <%= f.input :pages %><br />
   </div>
   <%= f.hidden_field :owner_id, :value => current_user.id %>

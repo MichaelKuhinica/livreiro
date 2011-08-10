@@ -1,12 +1,12 @@
 <table>
   <tr>
-    <th>Title</th>
-    <th>Author</th>
-    <th>Category</th>
-    <th>Pages</th>
-    <th>Owner</th>
-    <th>With</th>
-    <th></th>
+    <th>Titulo</th>
+    <th>Autor</th>
+    <th>Categoria</th>
+    <th>Local</th>
+    <th>P&aacute;ginas</th>
+    <th>Dono</th>
+    <th>Locador</th>
     <th></th>
     <th></th>
   </tr>
@@ -16,10 +16,10 @@
     <td><%= book.title %></td>
     <td><%= book.author %></td>
     <td><%= book.category %></td>
+    <td><%= book.current_location %></td>
     <td><%= book.pages %></td>
     <td><%= book.owner %></td>
     <td><%= book.with %></td>
-    <td><%= link_to 'Show', book %></td>
     <td>
       <% if book.owner == current_user %>
         <%= link_to 'Editar', edit_book_path(book) %>
@@ -29,7 +29,7 @@
         <%= link_to 'Devolver', return_book_path(book), :method => :post %>
       <% end %>
     </td>
-    <td><%= link_to('Destroy', book, :confirm => 'Are you sure?', :method => :delete) if book.owner == current_user %></td>
+    <td><%= link_to('Apagar', book, :confirm => 'Tem certeza?', :method => :delete) if book.owner == current_user %></td>
   </tr>
 <% end %>
 </table>

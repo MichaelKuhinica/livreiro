@@ -3,6 +3,7 @@ class Book < ActiveRecord::Base
   scope :free, where("with_id is null")
   scope :lent, where("with_id is not null")
 
+  Locations = ["SP", "MG"]
   Categories = ["Gestão empresarial", "Auto ajuda", "Gastronomia", "Dicionários e Gramática Engenharia e Tecnologia", "Empreendedorismo e inovação", "Outros"]
 
   def lend(user)
