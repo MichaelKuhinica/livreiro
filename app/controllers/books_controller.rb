@@ -70,11 +70,9 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book.save
-        format.html { redirect_to(@book, :notice => 'Book was successfully created.') }
-        format.xml  { render :xml => @book, :status => :created, :location => @book }
+        format.html { redirect_to(books_path, :notice => 'Livro criado.') }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @book.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -86,7 +84,7 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book.update_attributes(params[:book])
-        format.html { redirect_to(@book, :notice => 'Book was successfully updated.') }
+        format.html { redirect_to(books_path, :notice => 'Livro atualizado.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
