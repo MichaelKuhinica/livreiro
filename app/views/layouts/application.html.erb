@@ -26,13 +26,9 @@
 		</div>
 	</div>
 	<div id="main-content">
-          <div id="busca">
-            <%= form_tag search_books_path, :method => "get" do %>
-              <%= label_tag :keywords, "Buscar" %>
-              <%= text_field_tag :keywords %>
-              <%= submit_tag "Enviar" %>
-            <% end %>
-          </div>
+	  <% if user_signed_in? %>
+            <%= render 'books/busca' %>
+          <% end %>
   		<div class="messages">
     		<p class="notice"><%= notice %></p>
     		<p class="alert"><%= alert %></p>
