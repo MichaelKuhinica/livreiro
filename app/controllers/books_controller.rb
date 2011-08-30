@@ -106,4 +106,11 @@ class BooksController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def search 
+    parameters = params[:keywords] || ''
+    @search = Book.search do
+      keywords(parameters) 
+    end
+  end
 end

@@ -8,6 +8,7 @@ Livreiro::Application.routes.draw do
   resources :books do
     collection do
       get 'free'
+      get 'search'
     end
     member do
       post 'lend'

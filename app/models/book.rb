@@ -6,6 +6,17 @@ class Book < ActiveRecord::Base
   Locations = ["SP", "MG"]
   Categories = ["Gestão empresarial", "Auto ajuda", "Gastronomia", "Dicionários e Gramática", "Engenharia e Tecnologia", "Empreendedorismo e inovação", "Outros"]
 
+  searchable do
+    text :title, :default_boost => 3
+    text :author, :default_boost => 2
+    text :owner_name do 
+      owner.name
+    end
+    text :category, :default_boost => 1
+    text :isbn
+    integer :owner_id, :references => User
+  end
+
   def lend(user)
     self.with = user
     self.save!
