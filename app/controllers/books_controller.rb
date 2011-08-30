@@ -111,6 +111,7 @@ class BooksController < ApplicationController
     parameters = params[:keywords] || ''
     @search = Book.search do
       keywords(parameters) 
+      paginate(:page => params[:page], :per_page => 10)
     end
   end
 end

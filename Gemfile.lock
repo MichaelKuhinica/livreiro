@@ -102,6 +102,9 @@ GEM
     sunspot_rails (1.2.1)
       nokogiri
       sunspot (= 1.2.1)
+    sunspot_with_kaminari (0.1.0)
+      kaminari
+      sunspot_rails
     thor (0.14.6)
     treetop (1.4.9)
       polyglot (>= 0.3.1)
@@ -121,3 +124,4 @@ DEPENDENCIES
   rspec-rails (>= 2.0.1)
   simple_form
   sunspot_rails (~> 1.2.1)
+  sunspot_with_kaminari (~> 0.1)
