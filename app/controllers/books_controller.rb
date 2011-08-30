@@ -1,8 +1,9 @@
 class BooksController < ApplicationController
   before_filter :authenticate_user!
+  before_filter :collect_page
 
   def free
-    @books = Book.free
+    @books = Book.free.page(@page)
 
     respond_to do |format|
       format.html
@@ -13,7 +14,8 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.xml
   def index
-    @books = Book.all
+    page = params[:page] || 1
+    @books = Book.page(@page)
 
     respond_to do |format|
       format.html # index.html.erb

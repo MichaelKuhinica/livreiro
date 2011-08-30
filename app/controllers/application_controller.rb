@@ -6,5 +6,9 @@ class ApplicationController < ActionController::Base
     flash[:notice] = message    
     redirect_to root_path 
   end
+  
+  def collect_page
+    @page = params[:page] || 1
+  end
 
 end
