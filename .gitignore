@@ -4,3 +4,7 @@ log/*.log
 tmp/
 *.swp
 .rvmrc
+config/setup_load_paths.rb
+log/sunspot-solr-production.log.lck
+solr/
+sunspot-solr.pid
