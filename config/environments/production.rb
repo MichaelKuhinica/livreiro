@@ -52,5 +52,10 @@ Livreiro::Application.configure do
       :port =>         25,
       :domain =>      "webgoal.com.br"
     }
+  config.action_mailer.default_url_options = {
+    :host => "home.webgoal.com.br",
+    :port => 80,
+    :only_path => false
+  }
 
 end
