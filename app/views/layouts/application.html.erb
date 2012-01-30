@@ -15,20 +15,17 @@
 					Olá <%= current_user.name %>. <%= link_to "Sair", destroy_user_session_path, :method => :delete %>
 				</div>
 				<div class="links">
-					<%= link_to "Adicionar Livro", new_book_path %>
-					<%= link_to "Todos os Livros", books_path %>
-					<%= link_to "Livros Disponíveis", free_books_path %>
-					<%= link_to "Seus Livros", books_user_path(current_user) %>
-					<%= link_to "Livros com você", lent_user_path(current_user) %>
-					<%= link_to "Livros Emprestados", lended_user_path(current_user) %>
+					<%= link_to_menu "Adicionar Livro", new_book_path %>
+					<%= link_to_menu "Todos os Livros", root_path %>
+					<%= link_to_menu "Livros Disponíveis", free_books_path %>
+					<%= link_to_menu "Seus Livros", books_user_path(current_user) %>
+					<%= link_to_menu "Livros com você", lent_user_path(current_user) %>
+					<%= link_to_menu "Livros Emprestados", lended_user_path(current_user) %>
 				</div>
 			<% end %>
 		</div>
 	</div>
 	<div id="main-content">
-	  <% if user_signed_in? %>
-            <%= render 'books/busca' %>
-          <% end %>
   		<div class="messages">
     		<p class="notice"><%= notice %></p>
     		<p class="alert"><%= alert %></p>

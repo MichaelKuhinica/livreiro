@@ -1,6 +1,6 @@
-<table>
+<table id="listing">
   <tr>
-    <th>Titulo</th>
+    <th>Título</th>
     <th>Autor</th>
     <th>ISBN</th>
     <th>Categoria</th>
@@ -31,7 +31,11 @@
         <%= link_to 'Devolver', return_book_path(book), :method => :post %>
       <% end %>
     </td>
-    <td><%= link_to('Apagar', book, :confirm => 'Tem certeza?', :method => :delete) if book.owner == current_user %></td>
+	<td>
+	<% if book.owner == current_user %>
+	    <%= link_to('Apagar', book, :confirm => 'Tem certeza?', :method => :delete) %>
+	<% end %>
+	</td>
   </tr>
 <% end %>
 </table>

@@ -123,3 +123,6 @@ table td{
 	float:right;
 }
 
+.links a.active {
+	font-weight: bold;
+}

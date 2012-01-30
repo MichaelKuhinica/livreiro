@@ -108,9 +108,10 @@ class BooksController < ApplicationController
   end
 
   def search 
-    parameters = params[:keywords] || ''
+    word = params[:keywords] || ''
     @search = Book.search do
-      keywords(parameters) 
+      fulltext(word) 
+      with(:free, true) if params.has_key? :free
       paginate(:page => params[:page], :per_page => 10)
     end
   end

@@ -1,7 +1,7 @@
 <%= simple_form_for(@book) do |f| %>
   <% if @book.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@book.errors.count, "error") %> prohibited this book from being saved:</h2>
+      <h2>Aconteceu algum problema! Cheque esses campos:</h2>
 
       <ul>
       <% @book.errors.full_messages.each do |msg| %>
@@ -12,27 +12,27 @@
   <% end %>
 
   <div class="field">
-    <%= f.input :title %><br />
+    <%= f.input :title, :label => "Título" %><br />
   </div>
   <div class="field">
-    <%= f.input :author %><br />
+    <%= f.input :author, :label => "Autor" %><br />
   </div>
   <div class="field">
-    <%= f.input :isbn %><br />
+    <%= f.input :isbn, :label => "ISBN" %><br />
   </div>
   <div class="field">
-    <%= f.input :category, :collection => Book::Categories %>
+    <%= f.input :category, :collection => Book::Categories, :label => "Categoria" %>
     <br />
   </div>
   <div class="field">
-    <%= f.input :current_location, :collection => Book::Locations %>
+    <%= f.input :current_location, :collection => Book::Locations, :label => "Localização" %>
     <br />
   </div>
   <div class="field">
-    <%= f.input :pages %><br />
+    <%= f.input :pages, :label => "Páginas" %><br />
   </div>
   <%= f.hidden_field :owner_id, :value => current_user.id %>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Cadastrar" %>
   </div>
 <% end %>

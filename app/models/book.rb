@@ -12,8 +12,12 @@ class Book < ActiveRecord::Base
     text :owner_name do 
       owner.name
     end
+    boolean :free do
+      with_id == nil
+    end
     text :category, :default_boost => 1
     text :isbn
+    integer :with_id, :references => User
     integer :owner_id, :references => User
   end
 

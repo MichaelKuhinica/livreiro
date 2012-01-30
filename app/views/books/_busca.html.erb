@@ -2,6 +2,8 @@
   <%= form_tag search_books_path, :method => "get" do %>
     <%= label_tag :keywords, "Buscar" %>
     <%= text_field_tag :keywords %>
+	<%= label_tag :free, "Livre" %>
+	<%= check_box_tag :free %>
     <%= submit_tag "Enviar" %>
   <% end %>
 </div>
